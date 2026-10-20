@@ -1,5 +1,5 @@
 import { useState } from 'react'; // 1. Importa useState
-
+import { Link } from 'react-router-dom';
 const Navbar = () => {
   // Crea un estado para controlar si el menú está abierto (true) o cerrado (false)
   const [isOpen, setIsOpen] = useState(false);
@@ -13,10 +13,11 @@ const Navbar = () => {
     <>
       <header>
         <nav>
-          <div className="logo">
+          <Link className="logo" to="/">
             <img src="/public/img/image.png" alt="logo" />
             <h2>JDPhoto</h2>
-          </div>
+          </Link>
+          
           <div className="search-bar">
             <input type="text" placeholder="Buscar" />
             <i className="fa-solid fa-magnifying-glass"></i>
@@ -41,37 +42,37 @@ const Navbar = () => {
         </div>
         <ul className="sidebar-menu">
           <li>
-          <a href="/index.html">Inicio</a>
+          <Link to="/">Inicio</Link>
         </li>
         <li>
-          <a href="/html/catalogo.html"
-            >Catálogo</a
+          <Link to="/catalogo"
+            >Catálogo</Link
           >
         </li>
         <li>
-          <a href="/html/carrito.html"
-            >Carrito</a
+          <Link href="/html/carrito.html"
+            >Carrito</Link
           >
         </li>
         <li>
-          <a href="/html/somos.html"
-            >Quienes somos</a
+          <Link to="/somos"
+            >Quienes somos</Link
           >
         </li>
         </ul>
-         <ul class="sidebar-menu">
+         <ul className="sidebar-menu">
         <li>
-          <a href="/html/inicio.html">Inicio de sesión</a>
+          <Link href="/html/inicio.html">Inicio de sesión</Link>
         </li>
         <li>
-          <a href="/html/registro.html"
-            >Registro</a
+          <Link href="/html/registro.html"
+            >Registro</Link
           >
         </li>
       </ul>
       </aside>
     </>
-  );
-};
+  )
+}
 
 export default Navbar;
