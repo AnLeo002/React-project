@@ -24,6 +24,7 @@ nav {
 .logo {
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
 .logo img {
@@ -35,6 +36,7 @@ nav {
     font-weight: 500;
     margin: auto;
     font-weight: bolder;
+    color: #000;
 }
 
 .search-bar {
@@ -605,4 +607,226 @@ footer {
 
 .fa-facebook {
     color: #1877F2;
+}
+.catalog-container {
+    padding: 70px 20px 60px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 800;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 20px 0 30px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Rejilla de Tarjetas */
+.cards-grid {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.88);
+    border-radius: 4px;
+    padding: 10px;
+    margin: 20px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    color: #000;
+    transition: 200ms;
+}
+.card:hover{
+    scale: 1.1;
+}
+.card-img {
+    width: 100%;
+    height:200px;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+
+.card-img-service {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 2px;
+    margin-bottom: 12px;
+}
+
+.card-icon-service {
+    width: 100%;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.card-icon-service i {
+    font-size: 100px;
+    color: #111;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #000;
+}
+
+.card-price {
+    font-size: 17px;
+    font-weight: bold;
+    color: #111;
+}
+
+.card-desc {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.btn-more {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 6px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: auto;
+    transition: background 0.2s;
+}
+
+.btn-more:hover {
+    background-color: #333333;
+}
+.hero-about {
+  height: 400px;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url('https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+  padding: 30px 40px;
+}
+
+.hero-about h1 {
+  font-size: 42px;
+  font-weight: bold;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.main-about {
+  color: #111;
+}
+
+.about-content {
+  width: 100%;
+  display: flex;
+  padding: 40px 0px;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Tarjeta de Descripción General */
+.info-card-full {
+  background: #fafafa;
+background: linear-gradient(360deg, rgba(250, 250, 250, 0.64) 0%, rgba(255, 255, 255, 0.82) 59%);
+  padding: 55px;
+  font-weight: 500;
+  font-size: 25px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.mission-card {
+  width: 90%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.left {
+  background: #fafafa;
+  background: linear-gradient(80deg, rgba(250, 250, 250, 0.868) 19%, rgba(255, 255, 255, 0.363) 100%);
+  margin-right: auto;
+  margin-left: 0;
+  flex-direction: row;
+}
+
+.mission-text-box {
+  padding: 25px 30px 25px 0;
+  text-align: center;
+}
+
+.mission-text-box h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.mission-text-box p {
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.mission-img-box {
+  width: 40%;
+}
+
+.vision-card {
+  width: 90%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.right {
+  background: #fafafa;
+  background: linear-gradient(90deg, rgba(250, 250, 250, 0.276) 0%, rgba(255, 255, 255, 0.822) 54%);
+  margin-left: auto;
+  margin-right: 0;
+  flex-direction: row;
+}
+
+.vision-text-box {
+  flex: 1;
+  padding: 25px 30px;
+  text-align: center;
+}
+
+.vision-text-box h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.vision-text-box p {
+  font-weight: 500;
+  font-size: 25px;
+  object-fit: cover;
+}
+
+.vision-img-box {
+  width: 40%;
+  height: 100%;
+}
+
+.vision-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
