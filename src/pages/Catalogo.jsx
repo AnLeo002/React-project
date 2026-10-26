@@ -1,7 +1,6 @@
 import { productos, servicios } from "../constants"
 import Card from "../components/Card"
 import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
 
 const Catalogo = () => {
   return (
@@ -26,7 +25,6 @@ const Catalogo = () => {
         </div>
       </section>
     </main>
-    <Footer></Footer>
     </>
     
   )
