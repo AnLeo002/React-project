@@ -62,7 +62,8 @@ const Navbar = () => {
         </ul>
          <ul className="sidebar-menu">
         <li>
-          <Link href="/html/inicio.html">Inicio de sesión</Link>
+          <Link to="/inicio">Inicio de sesión</Link
+          >
         </li>
         <li>
           <Link href="/html/registro.html"
