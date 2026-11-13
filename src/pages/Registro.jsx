@@ -1,21 +1,22 @@
+import "./css/Registro.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiFetch } from "../services/api";
+import MessageModal  from "../components/MessageModal";
+
 const Registro = () => {
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [menssage, setMessage] = useState("");
-  const [messageType, setMessageType] = useState("");
-
+  const [messageModalOpen, setMessageModalOpen] = useState(false);
+  const [message, setMessage] = useState("");
+  const [error,setError] = useState(false)
   const navigate = useNavigate();
 
   const signupHandler = async (e) => {
     e.preventDefault();
-    setMessage("");
-    console.log(name, lastname, email, username, password);
     try {
       await apiFetch("/api/registro", {
         method: "POST",
@@ -27,32 +28,44 @@ const Registro = () => {
           password: password,
         }),
       });
-
-      setMessageType("success");
+      setMessageModalOpen(true);
       setMessage("Usuario registrado correctamente");
-
+      setError(false);
       setTimeout(() => {
         navigate("/inicio");
       }, 2000);
     } catch (error) {
-      setMessageType("error");
-      setMessage(error.message || "Error al iniciar sesión");
+      setMessage(error.message);
+      setMessageModalOpen(true);
+      setError(true);
     }
   };
   return (
-    <div class="register-container">
-      <div class="register-bg-image"></div>
-      <div class="register-form-wrapper">
-        <div class="register-card">
+    <div className="register-container">
+      <MessageModal
+            isOpen={messageModalOpen}
+            message={message}
+            error={error}
+            onClose={() => setMessageModalOpen(false)}
+          />
+      <div className="register-form-wrapper">
+        <div className="register-card">
           <h2>Crear una cuenta</h2>
 
           <form onSubmit={signupHandler} method="POST">
-            <div class="form-group">
-              <label for="name">Nombre</label>
-              <input type="text" id="name" placeholder="Nombre" required value={name} onChange={(e) => setName(e.target.value)} />
+            <div className="form-group">
+              <label htmlFor="name">Nombre</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Nombre"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
-            <div class="form-group">
-              <label for="lastname">Apellido</label>
+            <div className="form-group">
+              <label htmlFor="lastname">Apellido</label>
               <input
                 type="text"
                 id="lastname"
@@ -62,8 +75,8 @@ const Registro = () => {
                 onChange={(e) => setLastname(e.target.value)}
               />
             </div>
-            <div class="form-group">
-              <label for="username">Nombre de usuario</label>
+            <div className="form-group">
+              <label htmlFor="username">Nombre de usuario</label>
               <input
                 type="text"
                 id="username"
@@ -74,8 +87,8 @@ const Registro = () => {
               />
             </div>
 
-            <div class="form-group">
-              <label for="email">Correo electrónico</label>
+            <div className="form-group">
+              <label htmlFor="email">Correo electrónico</label>
               <input
                 type="email"
                 id="email"
@@ -85,44 +98,37 @@ const Registro = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div class="form-group">
-              <label for="password">Contraseña</label>
+            <div className="form-group">
+              <label htmlFor="password">Contraseña</label>
               <input
                 type="password"
                 id="password"
                 placeholder="Contraseña"
                 required
                 value={password}
-                onChange={(e)=> setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
 
-            <button type="submit" class="btn-register">
+            <button type="submit" className="btn-register">
               Registrarse
             </button>
           </form>
-          <p>{menssage && (
-            <div className={`message ${messageType}`}>
-              {menssage}
-            </div>
-          )}</p>
-          
-
-          <div class="login-link">
+          <div className="login-link">
             <Link to="/inicio">Iniciar sesión</Link>
           </div>
 
-          <div class="divider">
+          <div className="divider">
             <span>o</span>
           </div>
 
-          <p class="social-text">Iniciar sesión con:</p>
-          <div class="social-buttons">
-            <button class="btn-social google">
-              Google <i class="fa-brands fa-google"></i>
+          <p className="social-text">Iniciar sesión con:</p>
+          <div className="social-buttons">
+            <button className="btn-social google">
+              Google <i className="fa-brands fa-google"></i>
             </button>
-            <button class="btn-social facebook">
-              Facebook <i class="fa-brands fa-facebook-f"></i>
+            <button className="btn-social facebook">
+              Facebook <i className="fa-brands fa-facebook-f"></i>
             </button>
           </div>
         </div>

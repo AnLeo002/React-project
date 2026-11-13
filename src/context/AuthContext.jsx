@@ -8,13 +8,13 @@ export function AuthProvider({children}){
   const [loading, setLoading] = useState(false);
 
   const login = async (username, password) => {
-    setLoading(true);
+    //setLoading(true);
 
     try{
       const data = await apiFetch("/api/login",{
         method:"POST",
         body: JSON.stringify({
-          username: username,
+          username: username.trim(),
           password: password
         })
       });
@@ -22,15 +22,15 @@ export function AuthProvider({children}){
       sessionStorage.setItem("token", data.token);
       setUser(data.usuario);
 
-      return user;
+      return data.usuario;
     }catch(error){
       sessionStorage.removeItem("token");
       setUser(null);
       console.error("Error during login:", error);
       throw error;
-    } finally {
+    } /*finally {
       setLoading(false);
-    }
+    }*/
   }
   const logout = () => {
     sessionStorage.removeItem("token");
@@ -38,13 +38,20 @@ export function AuthProvider({children}){
   }
   const recoverSession = async () => {
     const token = sessionStorage.getItem("token");
+    
     if(!token){
+      setLoading(false);
       return;
     }
     setLoading(true);
     try{
-      const profile = await apiFetch("/api/perfil");
-      setUser(profile);
+      const profile = await apiFetch("/api/perfil",{
+        method:"GET",
+        headers:{
+          "Authorization": `Bearer ${token}`
+        }
+      });
+      setUser(profile.user);
     } catch(error){
       sessionStorage.removeItem("token");
       setUser(null);

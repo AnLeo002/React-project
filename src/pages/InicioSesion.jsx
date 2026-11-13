@@ -1,46 +1,47 @@
-import { useState, useEffect } from "react";
+import "./css/InicioSesion.css";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import MessageModal from "../components/MessageModal";
 
 const InicioSesion = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [menssage, setMessage] = useState("");
-  const [messageType, setMessageType] = useState("");
+  const [messageModalOpen, setMessageModalOpen] = useState(false);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState(false);
 
-  const { user, login, loading } = useAuth();
+  const { login, loading } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user) {
-      const role = user?.role?.toLowerCase()?.trim();
-      navigate(role === "admin" ? "/admin" : "/");
-    }
-  }, [user, navigate]);
   const loginHandler = async (e) => {
     e.preventDefault();
-    setMessage("");
     try {
-      await login(username, password);
+      const loggedUser = await login(username, password);
+      const role = loggedUser?.role?.toLowerCase()?.trim();
 
-      setMessageType("success");
-      setMessage("Inicio de sesión exitoso");
+      navigate(role === "admin" ? "/admin" : "/");
     } catch (error) {
-      setMessageType("error");
-      setMessage(error.message || "Error al iniciar sesión");
+      setMessage(error.message);
+      setMessageModalOpen(true);
+      setError(true);
     }
   };
   return (
     <div className="login-container">
-      <div className="login-bg-image"></div>
-
+      <MessageModal
+        isOpen={messageModalOpen}
+        message={message}
+        error={error}
+        onClose={() => setMessageModalOpen(false)}
+      />
       <div className="login-form-wrapper">
         <div className="login-card">
           <h2>Inicio de sesión</h2>
 
           <form onSubmit={loginHandler} method="POST">
             <div className="form-group">
-              <label for="username">Nombre de usuario</label>
+              <label htmlFor="username">Nombre de usuario</label>
               <input
                 type="text"
                 id="username"
@@ -51,7 +52,7 @@ const InicioSesion = () => {
               />
             </div>
             <div className="form-group">
-              <label for="password">Contraseña</label>
+              <label htmlFor="password">Contraseña</label>
               <input
                 type="password"
                 id="password"
@@ -66,9 +67,7 @@ const InicioSesion = () => {
               {loading ? "Ingresando..." : "Iniciar sesión"}
             </button>
           </form>
-          {menssage && (
-            <div className={`message ${messageType}`}>{menssage}</div>
-          )}
+
           <div className="account-link">
             <Link to="/registro">Crear una cuenta</Link>
           </div>
