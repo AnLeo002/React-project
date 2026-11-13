@@ -11,11 +11,11 @@ import Registro from "./pages/Registro";
 import Admin from "./admin/admin";
 import ProtectRoute from "./components/ProtectRoute";
 import {AuthProvider, useAuth } from "./context/AuthContext";
-
+import{Loading} from "./components/Loading"
 const Layout = () => {
   const {loading, recoverSession} = useAuth();
   const location = useLocation();
-  const rutasSinFooter = ["/inicio", "/registro"];
+  const rutasSinFooter = ["/inicio", "/registro","/admin"];
   const ocultarFooter = rutasSinFooter.includes(location.pathname);
 
   useEffect(() => {
@@ -24,8 +24,8 @@ const Layout = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        Cargando...
+      <div>
+        <Loading/>
       </div>
     );
   }
@@ -40,7 +40,7 @@ const Layout = () => {
         <Route path="/inicio" element={<InicioSesion />} />
         <Route path="/registro" element={<Registro />} />
 
-        <Route element={<ProtectRoute onlyAdmin={true} />}>
+        <Route element={<ProtectRoute />}>
           <Route path="/admin" element={<Admin />} />
         </Route>
       </Routes>

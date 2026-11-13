@@ -1,6 +1,6 @@
 import {useEffect,useState} from "react";
 import {apiFetch} from "../services/api";
-
+import "./css/admin.css"
 function Admin(){
   const [users,setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -25,15 +25,18 @@ function Admin(){
   }
 
   return (
-    <div>
-      <h1>Panel de administración</h1>
+    <section className="admin-container">
+      <div className="admin-info">
+        <h1>Panel de administración</h1>
       {message && <div className="error-message">{message}</div>}
+      <hr />
+      </div>
       <table>
-        <thead>
+        <thead >
           <tr>
-            <th>id</th>
+            <th>Id</th>
             <th>Nombre</th>
-            <th>apellido</th>
+            <th>Apellido</th>
             <th>Email</th>
             <th>Nombre de usuario</th>
             <th>Rol</th>
@@ -52,7 +55,7 @@ function Admin(){
           ))}
         </tbody>
       </table>
-    </div>
+    </section>
 
   )
 }

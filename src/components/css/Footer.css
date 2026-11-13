@@ -1,0 +1,42 @@
+footer {
+    background: linear-gradient(rgba(0, 0, 0, 0.676), rgba(0, 0, 0, 0.85)),
+        url('/img/footer.jpg') center / cover;
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+.copyright {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: space-around;
+    font-size: 18px;
+    flex-wrap: wrap;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.social-item i {
+    font-size: 18px;
+}
+
+.fa-whatsapp {
+    color: #25D366;
+}
+
+.fa-instagram {
+    color: #E1306C;
+}
+
+.fa-facebook {
+    color: #1877F2;
+}

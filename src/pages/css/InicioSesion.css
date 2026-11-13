@@ -1,0 +1,184 @@
+.login-container {
+  padding-top: 65px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+  min-height: 70vh;
+  height: 100vh;
+  background-image: url('../../../public/img/imageninicio.jpg');
+}
+
+.login-form-wrapper {
+  position: relative;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: right center;
+}
+
+/* Tarjeta traslúcida estilo "Glassmorphism" */
+.login-card {
+  width: 100%;
+  height: 100%;
+  padding: 50px 40px;
+  background: rgba(255, 255, 255, 0.72); /* Controla la transparencia blanca */
+  backdrop-filter: blur(8px); /* Efecto cristal esmerilado */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Título */
+.login-card h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Campos de entrada */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  background: #ffffff;
+  color: #333;
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+/* Botón Sign In */
+.btn-signin {
+  width: 100%;
+  padding: 14px;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.btn-signin:hover {
+  background-color: #111111;
+}
+
+/* Enlaces */
+.account-link, .recovery-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.account-link a, .recovery-link a {
+  color: #111111;
+  font-size: 15px;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* Separador 'o' */
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 25px 0 15px 0;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #444444;
+}
+
+.divider span {
+  position: relative;
+  background-color: transparent;
+  padding: 0 10px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Social Login */
+.social-text {
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn-social {
+  flex: 1;
+  padding: 10px 15px;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: opacity 0.2s;
+}
+
+.btn-social:hover {
+  opacity: 0.9;
+}
+
+/* Colores de logos */
+.btn-social.google i {
+  color: #4285F4; /* Azul Google */
+}
+
+.btn-social.facebook i {
+  color: #1877F2; /* Azul Facebook */
+}
+
+/* Diseño Responsive para móviles */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+  .login-bg-image {
+    display: none; /* En pantallas pequeñas se oculta la mitad izquierda */
+  }
+  .login-form-wrapper {
+    flex: 1;
+    width: 100%;
+  }
+}

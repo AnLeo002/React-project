@@ -1,3 +1,4 @@
+import "./css/Catalogo.css"
 import { productos, servicios } from "../constants"
 import Card from "../components/Card"
 import Navbar from "../components/Navbar"

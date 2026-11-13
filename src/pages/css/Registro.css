@@ -1,0 +1,195 @@
+/* Contenedor principal dividido en 2 columnas */
+.register-container {
+  padding-top: 65px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+  min-height: 70vh;
+  height: 100vh;
+  background-image: url('../../../public/img/imageninicio.jpg');
+}
+
+.register-form-wrapper {
+  position: relative;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: right center;
+}
+
+/* Tarjeta traslúcida estilo "Glassmorphism" */
+.register-card {
+  width: 100%;
+  padding: 30px 40px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Título */
+.register-card h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #111;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Campos de entrada */
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background: #ffffff;
+  color: #333;
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+/* Formato específico para el input tipo date */
+input[type="date"] {
+  color: #aaa;
+  position: relative;
+}
+
+input[type="date"]:focus,
+input[type="date"]:valid {
+  color: #333;
+}
+
+/* Botón Registrar */
+.btn-register {
+  width: 100%;
+  padding: 12px;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.btn-register:hover {
+  background-color: #111111;
+}
+
+/* Enlace Iniciar Sesión */
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-link a {
+  color: #111111;
+  font-size: 14px;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* Separador 'o' */
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 18px 0 10px 0;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #444444;
+}
+
+.divider span {
+  position: relative;
+  background-color: transparent;
+  padding: 0 10px;
+  font-size: 13px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Social Login */
+.social-text {
+  text-align: center;
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-social {
+  flex: 1;
+  padding: 8px 12px;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+
+.btn-social:hover {
+  opacity: 0.9;
+}
+
+.btn-social.google i {
+  color: #4285F4;
+}
+
+.btn-social.facebook i {
+  color: #1877F2;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .register-container {
+    flex-direction: column;
+  }
+  .register-bg-image {
+    display: none;
+  }
+  .register-form-wrapper {
+    flex: 1;
+    width: 100%;
+  }
+}

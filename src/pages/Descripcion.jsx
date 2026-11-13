@@ -1,3 +1,4 @@
+import "./css/Descripcion.css"
 import { productos } from "../constants";
 import Card from "../components/Card";
 const Descripcion = () => {

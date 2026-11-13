@@ -1,18 +1,19 @@
+import "./css/Footer.css"
 const Footer = () => {
   return (
     <footer>
-      <div class="copyright">© Copyright JDPhoto S.A.S</div>
-      <div class="social-links">
-        <div class="social-item">
-          <i class="fa-brands fa-whatsapp"></i>
+      <div className="copyright">© Copyright JDPhoto S.A.S</div>
+      <div className="social-links">
+        <div className="social-item">
+          <i className="fa-brands fa-whatsapp"></i>
           <span>31123456755</span>
         </div>
-        <div class="social-item">
-          <i class="fa-brands fa-instagram"></i>
+        <div className="social-item">
+          <i className="fa-brands fa-instagram"></i>
           <span>jdphoto_col</span>
         </div>
-        <div class="social-item">
-          <i class="fa-brands fa-facebook"></i>
+        <div className="social-item">
+          <i className="fa-brands fa-facebook"></i>
           <span>jdphoto_col</span>
         </div>
       </div>

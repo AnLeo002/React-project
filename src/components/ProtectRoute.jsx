@@ -13,7 +13,8 @@ function ProtectRoute({onlyAdmin=false}){
   if(!user){
     return <Navigate to="/inicio" replace/>
   }
-  if(onlyAdmin && user.rol !== "admin"){
+  const role = (user.role ?? user.rol)?.toString().trim().toLowerCase();
+  if(onlyAdmin && role !== "admin"){
     return <Navigate to="/" replace/>
   }
 

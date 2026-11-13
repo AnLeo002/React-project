@@ -1,0 +1,143 @@
+nav {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 40px;
+    color: #000;
+    position: fixed;
+    z-index: 1;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 25px;
+    margin: 10px;
+}
+
+.logo h2 {
+    font-weight: 500;
+    margin: auto;
+    font-weight: bolder;
+    color: #000;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    padding: 5px 15px;
+    width: 300px;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    outline: none;
+}
+.user-menu{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 18px;
+}
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Configuración del contenedor del Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background-color: #ddd;
+    background-image:
+        url('/img/negativo.png'),
+        linear-gradient(#ffffff, #ffffff);
+    background-size: contain;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    transition: right 0.4s ease-in-out;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/* Estado activo: se desplaza hacia adentro */
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar-header {
+    padding: 60px 20px 20px;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar-header h3 {
+    align-items: center;
+    font-weight: 500;
+    font-size: 50px;
+}
+
+.close-btn,
+.menu-toggle {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    color: #000;
+    text-decoration: none;
+    font-size: 25px;
+    transition: 200ms;
+}
+
+.sidebar-menu li a:hover {
+    color: #000;
+    scale: 1.3;
+}
